@@ -38,9 +38,7 @@ let checkValidPolicies = passwords => {
 let checkOtherValidPolicies = passwords => {
   passwords->preparePasswords->Js.Array2.reduce((acc, {password, policy, bounds}) => {
     let [firstMatch, secondMatch] =
-      bounds
-      ->Js.Array2.map(x => x - 1)
-      ->Js.Array2.map(x => password->Js.String2.charAt(x)->Js.String2.match_(policy))
+      bounds->Js.Array2.map(x => password->Js.String2.charAt(x - 1)->Js.String2.match_(policy))
     switch (firstMatch, secondMatch) {
     | (None, Some(_))
     | (Some(_), None) =>
