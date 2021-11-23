@@ -1,6 +1,4 @@
-// Part 1
-// Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input); apparently, something isn't quite adding up.
-// Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers together.
+let target = 2020
 
 let findExpense = (entries, target) => {
   let expense = ref(0)
@@ -18,12 +16,6 @@ let findExpense = (entries, target) => {
   }
   expense.contents
 }
-
-// --- Part Two ---
-// The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation.
-// They offer you a second one if you can find three numbers in your expense report that meet the same criteria.
-
-// In your expense report, what is the product of the three entries that sum to 2020?
 
 let findTripleExpense = (entries, target) => {
   let expense = ref(0)
