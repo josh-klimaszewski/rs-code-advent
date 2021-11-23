@@ -1,0 +1,16 @@
+{
+  "name": "advent-of-code-2020",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "@glennsl/bs-jest": "^0.7.0",
+    "bs-platform": "^9.0.2"
+  }
+}
