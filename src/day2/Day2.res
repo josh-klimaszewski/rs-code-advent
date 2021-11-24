@@ -6,7 +6,10 @@ module Password = {
   }
 
   let make = input => {
-    let [bounds, policy, password] = input->Js.String2.splitAtMost(" ", ~limit=3)
+    let parsedInput = input->Js.String2.splitAtMost(" ", ~limit=3)
+    let bounds = parsedInput[0]
+    let policy = parsedInput[1]
+    let password = parsedInput[2]
     let bounds = bounds->Js.String2.split("-")->Js.Array2.map(int_of_string)
     let policy =
       policy->Js.String2.substring(~from=0, ~to_=1)->Js.Re.fromStringWithFlags(~flags="ig")
@@ -24,7 +27,8 @@ let checkValidPolicies = passwords => {
     | None => acc
     | Some(matches) =>
       let occurrences = matches->Js.Array2.length
-      let [min, max] = bounds
+      let min = bounds[0]
+      let max = bounds[1]
       let satisfiesLowerBounds = occurrences >= min
       let satisfiesUpperBounds = occurrences <= max
       switch (satisfiesLowerBounds, satisfiesUpperBounds) {
@@ -37,8 +41,10 @@ let checkValidPolicies = passwords => {
 
 let checkOtherValidPolicies = passwords => {
   passwords->preparePasswords->Js.Array2.reduce((acc, {password, policy, bounds}) => {
-    let [firstMatch, secondMatch] =
+    let matches =
       bounds->Js.Array2.map(x => password->Js.String2.charAt(x - 1)->Js.String2.match_(policy))
+    let firstMatch = matches[0]
+    let secondMatch = matches[1]
     switch (firstMatch, secondMatch) {
     | (None, Some(_))
     | (Some(_), None) =>
