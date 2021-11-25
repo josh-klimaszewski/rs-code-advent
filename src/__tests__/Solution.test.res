@@ -43,8 +43,13 @@ describe("Advent of Code 2020", () => {
 
   describe("Day 4", () => {
     let entries = "src/day4/Data.txt" |> Day4.parseTestFile
-    test("Password validator", () => {
-      entries |> Day4.countValidFields |> expect |> toEqual(190)
+
+    test("Password validator: 190 valid field shapes", () => {
+      entries |> Day4.countValidShapes |> expect |> toEqual(190)
+    })
+
+    test("Password validator: 121 valid fields", () => {
+      entries |> Day4.findValidEntries |> expect |> toEqual(121)
     })
   })
 })
