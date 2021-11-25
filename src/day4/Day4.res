@@ -34,8 +34,35 @@ module Form = {
 
 let parseTestFile = filepath => {
   filepath
-  ->TextFileParser.parseToStringArray
-  ->Js.Array2.filter(x => x != "")
+  ->TextFileParser.parseByNewLine
   ->Js.Array2.map(x => x->Js.String2.split(" ")->Js.Array2.map(x => x->Js.String2.split(":")))
   ->Js.Array2.map(Form.make)
 }
+
+let hasValidFields = (form: Form.t): bool => {
+  switch form {
+  | {
+    ecl: Some(_),
+    pid: Some(_),
+    eyr: Some(_),
+    hcl: Some(_),
+    hgt: Some(_),
+    byr: Some(_),
+    iyr: Some(_),
+    cid: None,
+  }
+  | {
+    ecl: Some(_),
+    pid: Some(_),
+    eyr: Some(_),
+    hcl: Some(_),
+    hgt: Some(_),
+    byr: Some(_),
+    iyr: Some(_),
+    cid: Some(_),
+  } => true
+  | _ => false
+  }
+}
+
+let countValidFields = forms => forms->Js.Array2.filter(hasValidFields)->Js.Array2.length

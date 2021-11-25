@@ -27,14 +27,14 @@ describe("Advent of Code 2020", () => {
   })
 
   describe("Day 3", () => {
-    let dayThreeEntries = "src/day3/Data.txt"->TextFileParser.parseToStringArray
+    let entries = "src/day3/Data.txt" |> TextFileParser.parseToStringArray
 
     test("Slope encounters 151 trees", () => {
-      dayThreeEntries->Day3.findTrees(3, 1) |> int_of_float |> expect |> toEqual(151)
+      entries->Day3.findTrees(3, 1) |> int_of_float |> expect |> toEqual(151)
     })
 
     test("Slopes encounter 7540141059 trees", () => {
-      dayThreeEntries->Day3.findAccumulatedTrees([(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
+      entries->Day3.findAccumulatedTrees([(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
       |> int_of_float
       |> expect
       |> toEqual(7540141059)
@@ -42,10 +42,9 @@ describe("Advent of Code 2020", () => {
   })
 
   describe("Day 4", () => {
+    let entries = "src/day4/Data.txt" |> Day4.parseTestFile
     test("Password validator", () => {
-      let dayOneEntries = "src/day4/Data.txt" |> Day4.parseTestFile
-      Js.log(dayOneEntries)
-      1 |> expect |> toEqual(1)
+      entries |> Day4.countValidFields |> expect |> toEqual(190)
     })
   })
 })
