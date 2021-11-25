@@ -40,4 +40,12 @@ describe("Advent of Code 2020", () => {
       |> toEqual(7540141059)
     })
   })
+
+  describe("Day 4", () => {
+    test("Password validator", () => {
+      let dayOneEntries = "src/day4/Data.txt" |> Day4.parseTestFile
+      Js.log(dayOneEntries)
+      1 |> expect |> toEqual(1)
+    })
+  })
 })
