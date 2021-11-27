@@ -6,27 +6,27 @@ open TextFileParser
 describe("Advent of Code 2020", () => {
   describe("Day 1", () => {
     open Day1
-    let dayOneEntries = "src/day1/Data.txt"->parseToIntArray
+    let entries = "src/day1/Data.txt"->parseToIntArray
 
     test("Expense of $485,739 found", () => {
-      dayOneEntries->findExpense(target) |> expect |> toEqual(485739)
+      entries->findExpense(target) |> expect |> toEqual(485739)
     })
 
     test("Triple expense of $161,109,702 found", () => {
-      dayOneEntries->findTripleExpense(target) |> expect |> toEqual(161109702)
+      entries->findTripleExpense(target) |> expect |> toEqual(161109702)
     })
   })
 
   describe("Day 2", () => {
     open Day2
-    let dayTwoEntries = "src/day2/Data.txt"->parseToStringArray
+    let entries = "src/day2/Data.txt"->parseToStringArray
 
     test("Password scraper finds 422 valid policies", () => {
-      dayTwoEntries->checkValidPolicies |> expect |> toEqual(422)
+      entries->checkValidPolicies |> expect |> toEqual(422)
     })
 
     test("Another password scraper finds 451 valid policies", () => {
-      dayTwoEntries->checkOtherValidPolicies |> expect |> toEqual(451)
+      entries->checkOtherValidPolicies |> expect |> toEqual(451)
     })
   })
 
@@ -56,6 +56,15 @@ describe("Advent of Code 2020", () => {
 
     test("Password validator: 121 valid fields", () => {
       entries |> findValidEntries |> expect |> toEqual(121)
+    })
+  })
+
+  describe("Day 5", () => {
+    open Day5
+    let entries = "src/day5/Data.txt" |> parse
+
+    test("Partitioner: Highest seat ID of 935", () => {
+      entries |> findHighestSeat |> expect |> toEqual(935)
     })
   })
 })
