@@ -66,5 +66,9 @@ describe("Advent of Code 2020", () => {
     test("Partitioner: Highest seat ID of 935", () => {
       entries |> findHighestSeat |> expect |> toEqual(935)
     })
+
+    test("Find missing seat id of 743", () => {
+      entries |> findMissingSeat |> expect |> toEqual(743)
+    })
   })
 })
