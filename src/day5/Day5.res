@@ -1,10 +1,3 @@
-// ->Js.Array2.map(Js.String2.split(""))
-
-/*
-['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'L', 'L', 'L', 'L']
-
-*/
-
 @val external parseInt: (string, int) => int = "parseInt"
 
 module BoardingPass = {
