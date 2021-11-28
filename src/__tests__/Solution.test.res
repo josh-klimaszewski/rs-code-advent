@@ -71,4 +71,11 @@ describe("Advent of Code 2020", () => {
       entries |> findMissingSeat |> expect |> toEqual(743)
     })
   })
+  describe("Day 6", () => {
+    open Day6
+    let entries = "src/day6/Data.txt" |> parse
+    test("Find sum of unique answers: 6506", () => {
+      entries |> findSumOfUniqueAnswers |> expect |> toEqual(6506)
+    })
+  })
 })
