@@ -6,7 +6,7 @@ open TextFileParser
 describe("Advent of Code 2020", () => {
   describe("Day 1", () => {
     open Day1
-    let entries = "src/day1/Data.txt"->parseToIntArray
+    let entries = "src/2020/day1/Data.txt"->parseToIntArray
 
     test("Expense of $485,739 found", () => {
       entries->findExpense(target) |> expect |> toEqual(485739)
@@ -19,7 +19,7 @@ describe("Advent of Code 2020", () => {
 
   describe("Day 2", () => {
     open Day2
-    let entries = "src/day2/Data.txt"->parseToStringArray
+    let entries = "src/2020/day2/Data.txt"->parseToStringArray
 
     test("Password scraper finds 422 valid policies", () => {
       entries->checkValidPolicies |> expect |> toEqual(422)
@@ -32,7 +32,7 @@ describe("Advent of Code 2020", () => {
 
   describe("Day 3", () => {
     open Day3
-    let entries = "src/day3/Data.txt" |> parseToStringArray
+    let entries = "src/2020/day3/Data.txt" |> parseToStringArray
 
     test("Slope encounters 151 trees", () => {
       entries->findTrees(3, 1) |> int_of_float |> expect |> toEqual(151)
@@ -48,7 +48,7 @@ describe("Advent of Code 2020", () => {
 
   describe("Day 4", () => {
     open Day4
-    let entries = "src/day4/Data.txt" |> parseTestFile
+    let entries = "src/2020/day4/Data.txt" |> parseTestFile
 
     test("Password validator: 190 valid field shapes", () => {
       entries |> countValidShapes |> expect |> toEqual(190)
@@ -61,7 +61,7 @@ describe("Advent of Code 2020", () => {
 
   describe("Day 5", () => {
     open Day5
-    let entries = "src/day5/Data.txt" |> parse
+    let entries = "src/2020/day5/Data.txt" |> parse
 
     test("Partitioner: Highest seat ID of 935", () => {
       entries |> findHighestSeat |> expect |> toEqual(935)
@@ -73,9 +73,14 @@ describe("Advent of Code 2020", () => {
   })
   describe("Day 6", () => {
     open Day6
-    let entries = "src/day6/Data.txt" |> parse
+    let entries = "src/2020/day6/Data.txt" |> parse
+
     test("Find sum of unique answers: 6506", () => {
       entries |> findSumOfUniqueAnswers |> expect |> toEqual(6506)
     })
+
+    // test("Find sum of answers everyone answered: ?", () => {
+    //   1 |> expect |> toEqual(1)
+    // })
   })
 })
