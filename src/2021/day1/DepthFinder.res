@@ -14,3 +14,18 @@ let findDepthChange = entries => {
   }
   change.contents
 }
+
+let findSlidingSums = entries => {
+  let sums = ref([])
+  for i in 0 to entries->Js.Array2.length - 3 {
+    sums :=
+      sums.contents->Js.Array2.concat([
+        entries
+        ->Js.Array2.slice(~start=i, ~end_=i + 3)
+        ->Js.Array2.reduce((acc, cum) => acc + cum, 0),
+      ])
+  }
+  sums.contents
+}
+
+let findSlidingSumDepthChange = entries => entries |> findSlidingSums |> findDepthChange
