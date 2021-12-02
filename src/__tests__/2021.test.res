@@ -14,4 +14,11 @@ describe("Advent of Code 2021", () => {
       entries |> findSlidingSumDepthChange |> expect |> toEqual(1252)
     })
   })
+  describe("Day 2", () => {
+    open Navigator
+    let entries = "src/2021/day2/Data.txt" |> parse
+    test("Final Destination: 2150351", () => {
+      entries |> findFinalDestination |> expect |> toEqual(2150351)
+    })
+  })
 })

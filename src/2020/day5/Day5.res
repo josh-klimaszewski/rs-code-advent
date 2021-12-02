@@ -45,7 +45,7 @@ let findHighestSeat = directions => {
 let findMissingSeat = directions => {
   let missing = ref(0)
   let sorted = directions->Js.Array2.sortInPlaceWith(sortById)
-  for i in 0 to sorted->Js.Array.length {
+  for i in 0 to sorted->Js.Array2.length {
     let cur = sorted->Belt.Array.get(i)
     let next = sorted->Belt.Array.get(i + 1)
     switch (cur, next) {
