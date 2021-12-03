@@ -20,5 +20,8 @@ describe("Advent of Code 2021", () => {
     test("Final Destination: 2150351", () => {
       entries |> findFinalDestination |> expect |> toEqual(2150351)
     })
+    test("Final Destination With Aim: 1842742223", () => {
+      entries |> findFinalDestinationWithAim |> expect |> toEqual(1842742223)
+    })
   })
 })
